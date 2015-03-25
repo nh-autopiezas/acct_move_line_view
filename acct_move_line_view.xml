@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_acct_move_lines_tree">
+            <field name="name">acct.move.line.tree</field>
+            <field name="model">account.move.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Acct Move Lines" >
+                    <field name="name"/>                    
+                    <field name="journal_id"/>                    
+                    <field name="date"/>                    
+                    <field name="account_id"/>                    
+                    <field name="debit"/>                    
+                    <field name="credit"/>                    
+                </tree>                
+            </field>
+        </record>
+
+
+    <!-- record id="meli_questions_search_view" model="ir.ui.view">
+        <field name="name">MercadoLibre Questions - Search</field>
+        <field name="model">mercadolibre.questions</field>
+        <field name="arch" type="xml">
+	    <search string="Search MercadoLibre Questions Information">
+                <filter string='Status' icon="terp-mrp" domain="[]" context="{'group_by' : 'status'}"/>
+	    </search>
+        </field>
+    </record -->
+
+
+        <record model="ir.actions.act_window" id="action_acct_move_lines_tree">
+            <field name="name">Account Move Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.move.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <!-- field name="search_view_id" ref="meli_questions_search_view"/ -->
+        </record>
+
+
+        <menuitem id="menu_acct_move_lines"
+            action="action_acct_move_lines_tree"
+            parent="account.menu_finance_entries"
+            name="Account Move Lines"
+	    sequence="3" />
+
+
+    </data>
+</openerp>
+
